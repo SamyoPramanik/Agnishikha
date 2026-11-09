@@ -218,7 +218,28 @@ Open [`notebooks/Ignis_mu_Model_Selection_v2.ipynb`](notebooks/Ignis_mu_Model_Se
 
 It needs no login and takes about 30 minutes.
 
-### 3. Run the model API and the dashboard
+### 3. Run with Docker Compose (Recommended)
+
+Start both the Model API backend and the Next.js frontend in one command:
+
+```bash
+docker compose up --build
+```
+
+- **Dashboard UI**: [http://localhost:3000](http://localhost:3000) (open the **NASA Models** or **Habitat Map** tab)
+- **Model API**: [http://localhost:8000](http://localhost:8000) (`GET /health`, `GET /models`)
+
+For live-reloading during development:
+```bash
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+```
+
+To run test suites inside the API container:
+```bash
+docker compose run --rm api python tests/run_tests.py
+```
+
+### 4. Run manually (Model API and dashboard)
 
 ```bash
 python api/server.py                     # http://127.0.0.1:8000  (GET /models, POST /predict/{model})
@@ -231,7 +252,7 @@ npm run dev                              # http://localhost:3000, open the "NASA
 
 The tab calls the API at `NEXT_PUBLIC_IGNIS_API_URL` (default `http://127.0.0.1:8000`). Without the API, for example on a static deploy, it uses `public/ignis/*.json`: answers precomputed by `api/export_static.py` from the same trained models, one input at a time around NASA reference conditions, and labelled as precomputed.
 
-### 4. Rebuild and check the dataset from NASA's files
+### 5. Rebuild and check the dataset from NASA's files
 
 ```bash
 python data/scripts/build_all.py --check      # rebuild every processed file and prove it is byte-for-byte identical
