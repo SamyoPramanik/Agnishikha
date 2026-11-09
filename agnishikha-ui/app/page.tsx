@@ -262,7 +262,7 @@ export default function MissionControlPage() {
             id={`panel-${tab}`}
             aria-labelledby={`tab-${tab}`}
             tabIndex={0}
-            className="animate-fade-in af-enter grid min-h-0 flex-1 auto-rows-fr grid-cols-1 gap-2.5 overflow-y-auto xl:auto-rows-auto xl:grid-cols-12 xl:overflow-hidden"
+            className="animate-fade-in af-enter grid min-h-0 flex-1 auto-rows-fr grid-cols-1 gap-2.5 overflow-y-auto xl:auto-rows-fr xl:grid-cols-12 xl:overflow-hidden"
           >
             {tab === "simulation" ? (
               <>
@@ -401,8 +401,8 @@ export default function MissionControlPage() {
                 subtitle="Feature contribution drivers · exact additive attribution"
                 icon={BrainCircuit}
                 accent="violet"
-                className="min-h-0 xl:col-span-12"
-                bodyClassName="min-h-0 overflow-hidden"
+                className="h-full min-h-0 xl:col-span-12"
+                bodyClassName="min-h-0 flex-1 overflow-hidden"
                 actions={<Pill tone="violet">{explanation.modelLabel}</Pill>}
               >
                 <ShapExplainability explanation={explanation} />
@@ -416,8 +416,8 @@ export default function MissionControlPage() {
                 subtitle="Real predictions with 90% ranges, tested-range warnings and exact Shapley values"
                 icon={FlaskConical}
                 accent="cyan"
-                className="min-h-0 xl:col-span-12"
-                bodyClassName="min-h-0 overflow-hidden"
+                className="h-full min-h-0 xl:col-span-12"
+                bodyClassName="flex min-h-0 flex-1 flex-col overflow-hidden p-0"
                 actions={<Pill tone="cyan">5 models · 4 ISS investigations</Pill>}
               >
                 <NasaModelPanel />
@@ -431,8 +431,8 @@ export default function MissionControlPage() {
                 subtitle="What NASA has tested, what the model says, where the habitat sits, what to test next"
                 icon={FlaskConical}
                 accent="amber"
-                className="min-h-0 xl:col-span-12"
-                bodyClassName="min-h-0 overflow-hidden"
+                className="h-full min-h-0 xl:col-span-12"
+                bodyClassName="flex min-h-0 flex-1 flex-col overflow-hidden p-0"
                 actions={<Pill tone="cyan">Real FLEX model · WSTF limits</Pill>}
               >
                 <HabitatMapPanel />
@@ -446,8 +446,8 @@ export default function MissionControlPage() {
                 subtitle="Actionable crew directives generated from the active case"
                 icon={ShieldAlert}
                 accent="emerald"
-                className="min-h-0 xl:col-span-12"
-                bodyClassName="min-h-0 overflow-hidden"
+                className="h-full min-h-0 xl:col-span-12"
+                bodyClassName="min-h-0 flex-1 overflow-hidden"
                 actions={<Pill tone="red">Crew-facing · advisory only</Pill>}
               >
                 <MitigationProtocols

@@ -102,7 +102,7 @@ export function HabitatMapPanel() {
   const rightEdge = X(pt.o2) > W - PR - 70;
 
   return (
-    <div className="af-stagger space-y-5 overflow-auto p-4 text-slate-200 sm:p-6">
+    <div className="af-stagger h-full min-h-0 space-y-5 overflow-y-auto p-4 text-slate-200 sm:p-6">
       <header>
         <h2 className="text-xl font-semibold text-slate-100 sm:text-2xl">
           NASA has never tested a fire in space at habitat pressure.
